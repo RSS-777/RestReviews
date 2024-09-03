@@ -1,0 +1,59 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin: auto 10px;
+    padding-bottom: 20px;
+}
+
+.nav__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__item {
+   margin-left: 10px;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: blue;
+}
+
+.authentication {
+    margin-right: 10px;
+}
+
+.authentication__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.authentication__item {
+
+}
+
+.authentication__link {
+    text-decoration: none;
+    color: blue;
+}
+
+.authentication__button {
+  border: none;
+  background-color: transparent;
+  color: blue;
+  cursor: pointer;
+}
+
+.nav__link:hover, .authentication__link:hover, .authentication__button:hover {
+    color: tomato;
+    text-shadow: 0 0 5px white;
+}
+
+.nav__link, .authentication__link, .authentication__button {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
