@@ -10,7 +10,10 @@
 
 <body>
     <header class="header">
-        <h1 class="header__title">Яка ваша думка про ці картинки?</h1>
+        <div class="burger-menu">
+            <input class="burger-menu__input" type="checkbox" id="input_check">
+            <label class="burger-menu__label" for="input_check"></label>
+        </div>
         <nav class="nav">
             <ul class="nav__list">
                 <li class="nav__item"><a class="nav__link" href="./index.html">Головна</a></li>
@@ -19,13 +22,16 @@
             </ul>
             <div class="authentication">
                 <ul class="authentication__list">
-                    <li class="authentication__item"><button class="authentication__button"
-                            id="openModal">Логін</button></li>
-                    <li class="authentication__item"><a class="authentication__link"
-                            href="./registration.html">Регістрація</a></li>
+                    <li class="authentication__item">
+                        <button class="authentication__button" id="openModal">Логін</button>
+                    </li>
+                    <li class="authentication__item">
+                        <a class="authentication__link" href="./registration.html">Регістрація</a>
+                    </li>
                 </ul>
             </div>
         </nav>
+        <h1 class="header__title">Яка ваша думка про ці картинки?</h1>
     </header>
     <main class="main">
         <div class="content">
@@ -63,7 +69,6 @@
             <div class="info-comment">Коментарі можуть залишати лиш авторизовані користувачі!</div>
         </div>
     </main>
-    <footer class="footer"></footer>
     <script src="../js/index.js"></script>
 </body>
 
