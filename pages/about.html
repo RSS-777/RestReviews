@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="burger-menu">
+            <input class="burger-menu__input" type="checkbox" id="input_check">
+            <label class="burger-menu__label" for="input_check"></label>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="/">Головна</a></li>
+                <li class="nav__item"><a class="nav__link" href="/contact">Контакти</a></li>
+                <li class="nav__item"><a class="nav__link" href="/about" onclick="return false;">Про нас</a></li>
+            </ul>
+            <div class="authentication">
+                <ul class="authentication__list">
+                    <li class="authentication__item">
+                        <button class="authentication__button-user">Користувач</button>
+                        <button class="authentication__button-login" id="openModal">Логін</button>
+                    </li>
+                    <li class="authentication__item">
+                        <a class="authentication__link" href="./registration">Регістрація</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1 class="header__title">About</h1>
+    </header>
+    <main class="main">
+        <div class="about">
+            <p class="about__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, atque harum
+                quae consequatur hic ipsam eum reiciendis nulla omnis. Illo, quae. Commodi sapiente autem, quae sit,
+                itaque quasi earum impedit mollitia reprehenderit velit modi consectetur est corporis rem cupiditate
+                ullam?</p>
+        </div>
+    </main>
+    <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/user.js"></script>
+</body>
+
+</html>

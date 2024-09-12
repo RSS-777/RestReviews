@@ -19,8 +19,7 @@
 
 .content__image-container {
     display: flex;
-    max-width: 100%;
-    width: 100%;
+    align-items: flex-start;
     margin-bottom: -5px;
     padding: 10px;
 }
@@ -56,7 +55,7 @@
     padding: 5px;
 }
 
-.content__comment {
+.content__button {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -65,7 +64,13 @@
     background-color: transparent;
 }
 
-.content__comment:hover {
+.content__button:disabled {
+    color: gray;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.content__button:hover {
     color: rgb(223, 0, 223);
     text-shadow: 0 0 1px black;
     cursor: pointer;
@@ -75,3 +80,105 @@
    margin: auto;
    color: gray;
 }
+
+/*modal view*/
+.modal {
+    position: fixed;
+    z-index: 5;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.711);
+    display: none;  
+}
+
+.no-scroll {
+    overflow: hidden;
+    max-height: 100vh;
+}
+
+.modal__close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 50px;
+    color: red;
+    background-color: white;
+    border-radius: 50%;
+    width: 50px; 
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    cursor: pointer; 
+    border: 1px solid red; 
+    padding-bottom: 5px;
+    box-shadow: 0 0 12px 1px red;
+}
+
+.modal__close:active {
+    color: orange;
+    box-shadow: 0 0 12px 1px orange;
+}
+
+.form-comment {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: flex;
+   flex-direction: column;
+   background-color: rgb(177, 177, 177);
+   padding: 10px;
+}
+
+.form-comment__block_flex {
+    display: flex;
+}
+
+.form-comment__label {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  border-radius: 8px;
+  color: rgb(151, 37, 102);
+  text-shadow: 0 0 5px white;
+}
+
+.form-comment__textarea {
+  resize: none;
+  width: 300px;
+  height: 120px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.form-comment__input {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+.form-comment__button {
+    border-radius: 8px;
+    padding: 5px 10px 5px;
+    width: 325px;
+    position: relative;
+    left: 95px;
+    color: rgb(151, 37, 102);
+    font-size: 20px;
+}
+
+.info-send {
+    margin: 5px auto;
+    color: red;
+}
+
+.content__no-comment {
+    color: coral;
+    font-size: 18px;
+}
+
+

@@ -1,0 +1,77 @@
+.authentication__item {
+  position: relative;
+}
+
+.formLogin {
+  position: absolute;
+  z-index: 3;
+  right: -90px;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  padding: 10px;
+  box-shadow: 2px 2px 12px 1px blue;
+  background-color: rgba(215, 215, 215, 0.795);
+  user-select: none;
+}
+
+.blockEmail {
+  width: 150px;
+  margin-top: 10px;
+  margin-right: 25px;
+}
+
+.blockPassword {
+  width: 150px;
+  margin-top: 10px;
+  margin-right: 25px;
+}
+
+.labelEmail {
+  margin-top: 20px;
+  color: rgb(156, 43, 3);
+}
+
+.labelPassword {
+  margin-top: 20px;
+  color: rgb(156, 43, 3);
+}
+
+.inputEmail {
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.inputPassword {
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.buttonSubmit {
+  margin-top: 20px;
+  font-size: 18px;
+  color: brown;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid blue;
+  box-shadow: 0 0 6px 0 blue;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+.buttonSubmit:hover {
+  box-shadow: 0 0 3px 0 blue;
+  color: rgb(91, 3, 3);
+}
+
+.infoLogin {
+  color: red;
+}
+
+.closeFormLogin {
+  display: none;
+  flex-direction: column;
+}

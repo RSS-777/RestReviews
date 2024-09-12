@@ -1,0 +1,59 @@
+.authentication__button-user {
+    background-color: transparent;
+    border: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: blue;
+    cursor: pointer;
+}
+.authentication__button-user:hover {
+    color: tomato;
+    text-shadow: 0 0 5px white;
+}
+
+.user {
+    position: absolute;
+    z-index: 3;
+    right: 10px;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 2px 2px 12px 1px blue;
+    background-color: rgba(215, 215, 215, 0.795);
+    user-select: none;
+}
+
+.user__name {
+    color: coral;
+}
+
+.user__email {
+    color: blue;
+    margin-top: 10px;
+}
+
+.user__In-Out-button {
+    margin-top: 20px;
+    font-size: 18px;
+    color: brown;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid blue;
+    box-shadow: 0 0 6px 0 blue;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.user__In-Out-button:hover {
+    box-shadow: 0 0 3px 0 blue;
+    color: rgb(114, 0, 0);
+}
+
+.close__user {
+    display: none;
+    flex-direction: column;
+  }

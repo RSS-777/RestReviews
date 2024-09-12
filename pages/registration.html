@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регістрація</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="burger-menu">
+            <input class="burger-menu__input" type="checkbox" id="input_check">
+            <label class="burger-menu__label" for="input_check"></label>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="/">Головна</a></li>
+                <li class="nav__item"><a class="nav__link" href="/contact">Контакти</a></li>
+                <li class="nav__item"><a class="nav__link" href="/about">Про нас</a></li>
+            </ul>
+            <div class="authentication">
+                <ul class="authentication__list">
+                    <li class="authentication__item">
+                        <button class="authentication__button-user">Користувач</button>
+                        <button class="authentication__button-login" id="openModal">Логін</button>
+                    </li>
+                    <li class="authentication__item">
+                        <a class="authentication__link" href="./registration">Регістрація</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1 class="header__title">Регістрація</h1>
+    </header>
+    <main class="main">
+        <form class="form-registration" action="/registration" method="post">
+            <div class="form-comment__block form-comment__block_flex">
+                <label class="form-comment__label" for="firstName">Ваше ім'я:</label>
+                <input class="form-comment__input" type="text" name="firstName" id="firstName">
+            </div>
+            <div class="form-comment__block form-comment__block_flex">
+                <label class="form-comment__label" for="lastName">Ваша прізвище:</label>
+                <input class="form-comment__input" type="text" name="lastName" id="lastName">
+            </div>
+            <div class="form-comment__block form-comment__block_flex">
+                <label class="form-comment__label" for="email">Емейл:</label>
+                <input class="form-comment__input" type="email" name="email" id="email">
+            </div>
+            <div class="form-comment__block form-comment__block_flex">
+                <label class="form-comment__label" for="password">Пароль:</label>
+                <input class="form-comment__input" type="password" name="password" id="password">
+            </div>
+            <div class="form-comment__block form-comment__block_flex">
+                <label class="form-comment__label" for="birthday">День народження:</label>
+                <input class="form-comment__input" type="date" name="birthday" id="birthday">
+            </div>
+            <button class="form-comment__button" type="submit">Відправити форму</button>
+            <p class="info-send"></p>
+        </form>
+    </main>
+    <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/user.js"></script>
+</body>
+</html>

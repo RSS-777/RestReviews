@@ -37,7 +37,7 @@
     color: blue;
 }
 
-.authentication__button {
+.authentication__button-login {
     border: none;
     background-color: transparent;
     color: blue;
@@ -46,14 +46,14 @@
 
 .nav__link:hover,
 .authentication__link:hover,
-.authentication__button:hover {
+.authentication__button-login:hover {
     color: tomato;
     text-shadow: 0 0 5px white;
 }
 
 .nav__link,
 .authentication__link,
-.authentication__button {
+.authentication__button-login {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rest reviews</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -16,17 +16,18 @@
         </div>
         <nav class="nav">
             <ul class="nav__list">
-                <li class="nav__item"><a class="nav__link" href="./index.html">Головна</a></li>
-                <li class="nav__item"><a class="nav__link" href="./contact.html">Контакти</a></li>
-                <li class="nav__item"><a class="nav__link" href="./about.html">Про нас</a></li>
+                <li class="nav__item"><a class="nav__link" href="/">Головна</a></li>
+                <li class="nav__item"><a class="nav__link" href="/contact">Контакти</a></li>
+                <li class="nav__item"><a class="nav__link" href="/about">Про нас</a></li>
             </ul>
             <div class="authentication">
                 <ul class="authentication__list">
                     <li class="authentication__item">
-                        <button class="authentication__button" id="openModal">Логін</button>
+                        <button class="authentication__button-user">Користувач</button>
+                        <button class="authentication__button-login" id="openModal">Логін</button>
                     </li>
                     <li class="authentication__item">
-                        <a class="authentication__link" href="./registration.html">Регістрація</a>
+                        <a class="authentication__link" href="./registration">Регістрація</a>
                     </li>
                 </ul>
             </div>
@@ -40,9 +41,7 @@
                     src="../images/1670421706_10-kartinkin-net-p-kartinka-orel-v-nebe-vkontakte-10.jpg"
                     alt="Image eagle">
                 <div class="content__post">
-                    <div class="content__user">serj</div>
-                    <p class="content__text">sdfsdfsdffff</p>
-                    <button class="content__comment">Додати коментар</button>
+                    <button class="content__button" disabled>Додати коментар</button>
                 </div>
             </div>
             <div class="info-comment">Коментарі можуть залишати лиш авторизовані користувачі!</div>
@@ -51,9 +50,7 @@
                     src="../images/photorealistic-view-tree-nature-with-branches-trunk_23-2151478112.jpg"
                     alt="Image mountain">
                 <div class="content__post">
-                    <div class="content__user">serj</div>
-                    <p class="content__text">sdfsdf</p>
-                    <button class="content__comment">Додати коментар</button>
+                    <button class="content__button" disabled>Додати коментар</button>
                 </div>
             </div>
             <div class="info-comment">Коментарі можуть залишати лиш авторизовані користувачі!</div>
@@ -61,15 +58,26 @@
                 <img class="content__image" src="..//images/view-nature-landscape-with-flowers-field_23-2150763616.jpg"
                     alt="Image river">
                 <div class="content__post">
-                    <div class="content__user">serj</div>
-                    <p class="content__text">sdfsdf</p>
-                    <button class="content__comment">Додати коментар</button>
+                    <button class="content__button" disabled>Додати коментар</button>
                 </div>
             </div>
             <div class="info-comment">Коментарі можуть залишати лиш авторизовані користувачі!</div>
         </div>
+        <div class="modal">
+            <button class="modal__close" type="button">x</button>
+            <form class="form-comment" action="/" method="post">
+                <div class="form-comment__block form-comment__block_flex">
+                    <label class="form-comment__label" for="text">Коментар:</label>
+                    <textarea class="form-comment__textarea" name="text" id="text"></textarea>
+                </div>
+                <button class="form-comment__button" type="submit">Добавити коментар</button>
+                <p class="info-send"></p>
+            </form>
+        </div>
     </main>
     <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/user.js"></script>
 </body>
 
 </html>

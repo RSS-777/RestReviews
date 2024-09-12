@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакти</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -16,17 +16,18 @@
         </div>
         <nav class="nav">
             <ul class="nav__list">
-                <li class="nav__item"><a class="nav__link" href="./index.html">Головна</a></li>
-                <li class="nav__item"><a class="nav__link" href="./contact.html">Контакти</a></li>
-                <li class="nav__item"><a class="nav__link" href="./about.html">Про нас</a></li>
+                <li class="nav__item"><a class="nav__link" href="/">Головна</a></li>
+                <li class="nav__item"><a class="nav__link" href="/contact">Контакти</a></li>
+                <li class="nav__item"><a class="nav__link" href="/about">Про нас</a></li>
             </ul>
             <div class="authentication">
                 <ul class="authentication__list">
                     <li class="authentication__item">
-                        <button class="authentication__button" id="openModal">Логін</button>
+                        <button class="authentication__button-user">Користувач</button>
+                        <button class="authentication__button-login" id="openModal">Логін</button>
                     </li>
                     <li class="authentication__item">
-                        <a class="authentication__link" href="./registration.html">Регістрація</a>
+                        <a class="authentication__link" href="./registration">Регістрація</a>
                     </li>
                 </ul>
             </div>
@@ -53,6 +54,8 @@
         </div>
     </main>
     <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/user.js"></script>
 </body>
 
 </html>
