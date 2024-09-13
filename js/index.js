@@ -36,8 +36,8 @@ if (modal__close) {
     })
 }
 
-// show comment on page
-fetch('./api/comments')
+// Отримання коментарів і вивід їх на сторінку
+fetch('/comments')
     .then(response => response.json()
         .then(data => {
             data.forEach((comment) => {
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     formData.append('image_id', imageId);
                     formData.append('name', name);
 
-                    fetch('/', {
+                    fetch('/comments', {
                         method: 'POST',
                         body: formData
                     })
@@ -208,6 +208,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             formLogin.classList.add('closeFormLogin')
                             authButton.style.color = 'blue'
                             checkAuthentication()
+                            window.location.href = '/'; 
                         }, 2000)
 
                     }
@@ -233,7 +234,7 @@ const checkAuthentication = (getName) => {
     const userName = document.querySelector('.user__name');
     const userEmail = document.querySelector('.user__email');
 
-    fetch('/api/user')
+    fetch('/user')
         .then(response => response.json())
         .then(data => {
             if (data && data.firstName) {
@@ -247,8 +248,7 @@ const checkAuthentication = (getName) => {
                 userEmail.textContent = data.email
                 if (getName) {
                     getName(data.firstName)
-                }
-
+                }   
             } else {
                 loginButtonOpen.style.display = 'flex'
                 registration.style.display = 'block'
