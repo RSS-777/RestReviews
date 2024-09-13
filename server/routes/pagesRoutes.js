@@ -1,21 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
+const pagesController = require('../controllers/pagesControllers')
 
-router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..', 'pages', 'index.html'))
-});
+router.get('/', pagesController.renderHomePage);
 
-router.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..', 'pages', 'contact.html'))
-});
+router.get('/contact', pagesController.renderContactPage);
 
-router.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..','pages', 'about.html'))
-});
+router.get('/about', pagesController.renderAboutPage);
 
-router.get('/registration', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..', 'pages/registration.html'))
-});
+router.get('/registration', pagesController.renderRegistrationPage);
 
 module.exports = router;

@@ -1,8 +1,8 @@
 const sessionLogger = ((req, res, next) => {
-    if (req.session) {
-        console.log('Сесія активна:');
+    if (req.session && req.session.user) {
+        console.log('sessionLogger:', 'Сесія активна:');
     } else {
-        console.log('Сесія не активна');
+        console.log('sessionLogger:', 'Сесія не активна');
     }
     next();
 });

@@ -1,93 +1,12 @@
-const body = document.querySelector('body');
-const input = document.querySelector('.burger-menu__input');
-const nav = document.querySelector('.nav');
 const buttonAddComment = document.querySelectorAll('.content__button');
-const contentPost = document.querySelectorAll('.content__post')
-const modalView = document.querySelector('.modal');
-const modal__close = document.querySelector('.modal__close');
 
+// Додаємо значення + 1 до індексу кнопки (добавити коментар)
 let imageId;
 buttonAddComment.forEach((button, i) => {
     button.addEventListener('click', () => {
         imageId = i + 1
     })
 });
-
-// burger menu
-input.addEventListener('change', () => {
-    if (input.checked) {
-        nav.style.top = '0';
-    } else {
-        nav.style.top = '-100%';
-    }
-})
-
-//add comment
-buttonAddComment.forEach((buttElement, index) => buttElement.addEventListener('click', () => {
-    modalView.style.display = 'block'
-    body.classList.add('no-scroll')
-}))
-
-//close modal view
-if (modal__close) {
-    modal__close.addEventListener('click', () => {
-        modalView.style.display = 'none'
-        body.classList.remove('no-scroll')
-    })
-}
-
-// Отримання коментарів і вивід їх на сторінку
-fetch('/comments')
-    .then(response => response.json()
-        .then(data => {
-            data.forEach((comment) => {
-                const button = buttonAddComment[comment.image_id - 1]
-                if (button) {
-                    const newPost = document.createElement('div')
-                    const userName = document.createElement('span')
-                    const contentText = document.createElement('p')
-
-                    userName.classList.add('content__user')
-                    contentText.classList.add('content__text')
-
-                    userName.innerText = comment.name;
-                    contentText.innerText = comment.text;
-
-                    newPost.appendChild(userName)
-                    newPost.appendChild(contentText)
-
-                    if (contentPost) {
-                        contentPost[comment.image_id - 1].appendChild(newPost)
-                    }
-                    notComment() // запускаю повідомлення якщо не має коментарів
-                }
-            })
-        })
-    )
-
-    .catch(err => console.error('Помилка при завантаженні коментарів', err))
-
-// функція для виводу повідомлення що не має коментарів
-const notComment = () => {
-    setTimeout(() => {
-
-        if (contentPost) {
-            contentPost.forEach((element, index) => {
-                const hasName = element.querySelector('.content__name') !== null;
-                const hasText = element.querySelector('.content__text') !== null;
-
-                if (!hasName && !hasText) {
-                    const notComment = document.createElement('p');
-                    notComment.classList.add('content__no-comment');
-                    notComment.innerText = 'Тут може бути ваш коментар';
-
-                    if (!element.querySelector('.content__no-comment'))
-                        element.appendChild(notComment)
-                }
-            })
-        }
-    }, 0)
-}
 
 // додавання коментарів до бази даних
 document.addEventListener('DOMContentLoaded', () => {
@@ -201,14 +120,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 .then(data => {
                     if (!response.ok) {
                         infoLogin.textContent = data.error
+                        console.log('Помилка:', data.error)
                     } else {
                         infoLogin.textContent = data.message
+                        console.log('Успіх:', data.message, data.user.firstName)
 
                         setTimeout(() => {
                             formLogin.classList.add('closeFormLogin')
                             authButton.style.color = 'blue'
                             checkAuthentication()
-                            window.location.href = '/'; 
+                            window.location.href = '/';
                         }, 2000)
 
                     }
@@ -228,7 +149,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 // Перевірка aвтентифікації користувача
 const checkAuthentication = (getName) => {
     const registration = document.querySelector('.authentication__link')
-    const buttonAddComment = document.querySelectorAll('.content__button');
+
     const loginButtonOpen = document.querySelector('.authentication__button-login');
     const userButtonOpen = document.querySelector('.authentication__button-user');
     const userName = document.querySelector('.user__name');
@@ -238,7 +159,6 @@ const checkAuthentication = (getName) => {
         .then(response => response.json())
         .then(data => {
             if (data && data.firstName) {
-                console.log('Успішний вхід:', data.firstName)
                 registration.style.display = 'none'
                 loginButtonOpen.style.display = 'none'
                 userButtonOpen.style.display = 'flex'
@@ -248,7 +168,7 @@ const checkAuthentication = (getName) => {
                 userEmail.textContent = data.email
                 if (getName) {
                     getName(data.firstName)
-                }   
+                }
             } else {
                 loginButtonOpen.style.display = 'flex'
                 registration.style.display = 'block'
@@ -272,18 +192,18 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch('/logout', {
                 method: 'POST'
             })
-                .then(response => {
+                .then(response => response.json().then(data => {
                     if (response.ok) {
-                        console.log('Вихід успішний')
+                        console.log('Успіх', data.message)
 
                         setTimeout(() => {
                             checkAuthentication()
                             user.classList.add('close__user')
                         }, 2000)
                     } else {
-                        console.error('Помилка при виході з сесії')
+                        console.error('Помилка:', data.message)
                     }
-                })
+                }))
                 .catch(error => console.error('Помилка запиту:', error))
         })
     }
