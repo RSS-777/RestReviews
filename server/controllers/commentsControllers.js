@@ -1,9 +1,10 @@
-const connection = require('../config/db');
+const CommentModel = require('../models/commentModel');
 
 exports.getComments = (req, res) => {
-    connection.query('SELECT * FROM comment_post', (err, results) => {
+    CommentModel.getAllComments((err, results) => {
         if (err) {
             console.error(err)
+            return res.status(500).json({ error: 'Внутрішня помилка сервера', message: err.message });
         } else {
             res.json(results)
         }
@@ -13,9 +14,10 @@ exports.getComments = (req, res) => {
 exports.postComments = (req, res) => {
     const { name, text, image_id } = req.body;
 
-    connection.query('INSERT INTO comment_post(name, text, image_id)  VALUES(?, ?, ?)', [name, text, image_id], (err, results) => {
+    CommentModel.addComments(name, text, image_id, (err, results) => {
         if (err) {
             console.error('Помилка при додаванні коментаря', err)
+            return res.status(500).json({ error: 'Помилка при додаванні коментаря', message: err.message });
         } else {
             res.json({
                 message: 'коментар успішно добавлений',
