@@ -146,6 +146,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
     checkAuthentication()
 });
 
+// Виход з сесії
+document.addEventListener('DOMContentLoaded', () => {
+    const userOutButton = document.querySelector('.user__In-Out-button')
+    const user = document.querySelector('.user')
+
+    if (userOutButton) {
+        userOutButton.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            fetch('/logout', {
+                method: 'POST'
+            })
+                .then(response => response.json().then(data => {
+                    if (response.ok) {
+                        console.log('Успіх', data.message)
+
+                        setTimeout(() => {
+                            checkAuthentication()
+                            user.classList.add('close__user')
+                            window.location.replace('/')
+                            
+                        }, 2000)
+                    } else {
+                        console.error('Помилка:', data.message)
+                    }
+                }))
+                .catch(error => console.error('Помилка запиту:', error))
+        })
+    }
+})
+
 // Перевірка aвтентифікації користувача
 const checkAuthentication = (getName) => {
     const registration = document.querySelector('.authentication__link')
@@ -179,32 +210,3 @@ const checkAuthentication = (getName) => {
 
         .catch(error => console.error('Помилка перевірки автентифікації:', error))
 };
-
-// Виход з сесії
-document.addEventListener('DOMContentLoaded', () => {
-    const userOutButton = document.querySelector('.user__In-Out-button')
-    const user = document.querySelector('.user')
-
-    if (userOutButton) {
-        userOutButton.addEventListener('click', (event) => {
-            event.preventDefault();
-
-            fetch('/logout', {
-                method: 'POST'
-            })
-                .then(response => response.json().then(data => {
-                    if (response.ok) {
-                        console.log('Успіх', data.message)
-
-                        setTimeout(() => {
-                            checkAuthentication()
-                            user.classList.add('close__user')
-                        }, 2000)
-                    } else {
-                        console.error('Помилка:', data.message)
-                    }
-                }))
-                .catch(error => console.error('Помилка запиту:', error))
-        })
-    }
-})

@@ -129,6 +129,13 @@
     transform: rotate(-45deg);
 }
 
+.authentication__active {
+    color: red;
+    cursor: none;
+    pointer-events: none;
+    user-select: none;
+}
+
 @media screen and (max-width: 480px) {
     .burger-menu {
         display: flex;
@@ -148,21 +155,21 @@
     }
 
     .nav__list {
-      flex-direction: column;
-      margin-top: 10px;
+        flex-direction: column;
+        margin-top: 10px;
     }
-    
+
     .nav__item {
         margin: auto;
     }
-    
+
     .authentication {
         margin: auto;
     }
-    
+
     .authentication__list {
-       flex-direction: column;
-       align-items: center;
+        flex-direction: column;
+        align-items: center;
     }
 
 }

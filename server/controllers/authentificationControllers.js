@@ -1,6 +1,7 @@
 const PasswordService = require('../services/passwordService');
 const SessionService = require('../services/sessionService');
-const UserModel = require('../models/userModel')
+const UserModel = require('../models/userModel');
+const path = require('path')
 
 // Реєстрація
 exports.authRegistration = async (req, res) => {
@@ -56,7 +57,7 @@ exports.authLogin = (req, res) => {
     })
 };
 
-//Отримання інформації про користувача
+//Отримання інформації про користувача з сессії
 exports.authUser = (req, res) => {
     if (req.session.user) {
         res.json(req.session.user)
@@ -70,9 +71,19 @@ exports.authLogout = async (req, res) => {
     try {
         await SessionService.clearSession(req, res)
         console.log('logout:', ' Сесія успішно завершена')
-        return res.status(200).json({ message: 'Сесія завершена' })
+        return res.status(200).json({ message: 'Сесія завершена'})
     } catch (err) {
         console.log('logout:', 'Помилка при завершенні сесії', err)
         return res.status(500).json({ message: 'Помилка при завершенні сесії' })
     }
 };
+
+//Доступ до адмін-панелі
+
+exports.adminPanel = async (req, res) => {
+    if (req.session.user && (req.session.user.roleId === 3 || req.session.user.roleId === 2)) {
+        res.sendFile(path.join(__dirname, '..', '..', 'pages', 'admin.html'))
+    } else {
+        res.status(403).json({ message: 'Доступ заборонений' })
+    }
+}

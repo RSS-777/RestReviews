@@ -17,11 +17,12 @@
         <nav class="nav">
             <ul class="nav__list">
                 <li class="nav__item"><a class="nav__link" href="/">Головна</a></li>
-                <li class="nav__item"><a class="nav__link" href="/contact">Контакти</a></li>
+                <li class="nav__item"><a class="nav__link authentication__active" href="/contact">Контакти</a></li>
                 <li class="nav__item"><a class="nav__link" href="/about">Про нас</a></li>
             </ul>
             <div class="authentication">
                 <ul class="authentication__list">
+                    <li id="authentication__admin-panel" style="display: none;"><a class="nav__link" href="/admin">Адмін-панель</a></li>
                     <li class="authentication__item">
                         <button class="authentication__button-user">Користувач</button>
                         <button class="authentication__button-login" id="openModal">Логін</button>
@@ -59,6 +60,7 @@
     <script src="../js/login.js" defer></script>
     <script src="../js/modal.js" defer></script>
     <script src="../js/user.js" defer></script>
+    <script src="../js/admin.js"></script>
 </body>
 
 </html>

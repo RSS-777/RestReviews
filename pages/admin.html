@@ -5,16 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin panel</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-    <h1>Адмін панель</h1>
+    <header class="header-admin header">
+        <div class="burger-menu">
+            <input class="burger-menu__input" type="checkbox" id="input_check">
+            <label class="burger-menu__label" for="input_check"></label>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="/">Головна</a></li>
+                <li class="nav__item"><a class="nav__link" href="/contact">Контакти</a></li>
+                <li class="nav__item"><a class="nav__link" href="/about">Про нас</a></li>
+            </ul>
+            <div class="authentication">
+                <ul class="authentication__list">
+                    <li id="authentication__admin-panel" style="display: none;"><a class="nav__link authentication__active" href="/admin">Адмін-панель</a></li>
+                    <li class="authentication__item">
+                        <button class="authentication__button-user">Користувач</button>
+                        <button class="authentication__button-login" id="openModal">Логін</button>
+                    </li>
+                    <li class="authentication__item">
+                        <a class="authentication__link" href="./registration">Регістрація</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1 class="header-admin__title">Адмін-Панель</h1>
+    </header>
+    <main class="main-admin">
+        <span class="main-admin__status"></span>
+        <div class="users-data">
+            <table class="users-data__table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ім'я</th>
+                        <th>Емейл</th>
+                        <th>Роль</th>
+                        <th>Оновити роль</th>
+                    </tr>
+                </thead>
+                <tbody class="users-data__tbody">
+                </tbody>
+            </table>
+            <div class="users-data__response-message"></div>
+        </div>
+
+    </main>
+
+    <script src="../js/burgerMenu.js" defer></script>
+    <script src="../js/comments.js" defer></script>
+    <script src="../js/formHandlers.js" defer></script>
+    <script src="../js/login.js" defer></script>
+    <script src="../js/modal.js" defer></script>
+    <script src="../js/user.js" defer></script>
+    <script src="../js/admin.js" defer></script>
 </body>
-<script src="../js/burgerMenu.js" defer></script>
-<script src="../js/comments.js" defer></script>
-<script src="../js/formHandlers.js" defer></script>
-<script src="../js/login.js" defer></script>
-<script src="../js/modal.js" defer></script>
-<script src="../js/user.js" defer></script>
 
 </html>

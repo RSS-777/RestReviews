@@ -1,0 +1,48 @@
+.header-admin__title {
+   text-align: center;
+}
+
+.main-admin {
+    position: relative;
+}
+
+.main-admin__status {
+    color: red;
+    font-family: cursive;
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.users-data {
+    border: 2px solid black;
+}
+
+.users-data__table   {
+   border: 1px solid red;
+   padding: 5px;
+   margin: 10px;
+   border-collapse: collapse;
+}
+
+.users-data__table th {
+   color: blue;
+   border: 2px solid black;
+
+}
+
+.users-data__table td {
+   border: 2px solid black;
+   text-align: center;
+   padding: 2px 5px;
+
+}
+
+.users-data__response-message {
+  color: red;
+  padding: 10px;
+}
+
+
+
+

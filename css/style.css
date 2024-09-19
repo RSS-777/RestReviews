@@ -2,6 +2,7 @@
 @import url('./pages/contacts.css');
 @import url('./pages/about.css');
 @import url('./pages/registration.css');
+@import url('./pages/admin.css');
 @import url('../css/blocks/navigation.css');
 @import url('../css/blocks/login.css');
 @import url('../css/blocks/user.css');
