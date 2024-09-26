@@ -3,22 +3,54 @@
 }
 
 .main-admin {
-    position: relative;
+   position: relative;
 }
 
 .main-admin__status {
-    color: red;
-    font-family: cursive;
-    position: absolute;
-    right: 10px;
-    top: 0;
+   color: red;
+   font-family: cursive;
+   position: absolute;
+   right: 10px;
+   top: 0;
+}
+
+.tabs {
+   display: flex;
+}
+
+.tabs__item {
+   background-color: rgb(52, 52, 183);
+   color: white;
+   margin-left: 5px;
+   margin-bottom: 20px;
+   padding: 2px 8px 3px;
+   box-shadow: 2px 2px 12px 1px blue;
+   border-radius: 6px;
+   cursor: pointer;
+}
+
+.tabs__item:hover {
+   border: 1px solid red;
+}
+
+.tabs__item--active {
+   box-shadow: 0 0 5px 0 blue;
+   color: coral;
+}
+
+.tabs-content__section {
+   display: none;
+}
+
+.tabs-content__section--active {
+   display: block;
 }
 
 .users-data {
-    border: 2px solid black;
+   border: 2px solid black;
 }
 
-.users-data__table   {
+.users-data__table {
    border: 1px solid red;
    padding: 5px;
    margin: 10px;
@@ -39,10 +71,394 @@
 }
 
 .users-data__response-message {
-  color: red;
-  padding: 10px;
+   color: red;
+   padding: 10px;
 }
 
+/*Зміна сторінок*/
+.pages-block {
+   display: flex;
+   border-top: 2px solid black;
+   padding: 10px 10px 10px 0;
+}
 
+.pages-tabs {
+   width: 120px;
+   height: 450px;
+   z-index: 2;
+   background-color: white;
+   padding-left: 10px;
+}
 
+.pages-content {
+   position: relative;
+   width: 100%;
+}
 
+.pages-block__info-message-about, .pages-block__info-message-contact, .pages-block__info-message-home {
+   text-align: center;
+   color: red;
+}
+
+.pages-tabs__list {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.pages-tabs__item {
+   color: blue;
+   border-bottom: 2px solid transparent;
+   cursor: pointer;
+}
+
+.pages-tabs__item--active {
+   color: red;
+   border-bottom: 2px solid coral;
+}
+
+.pages-tabs__item:hover {
+   color: rgb(251, 102, 102);
+}
+
+.pages-block__home {
+   margin-top: 18px;
+}
+
+.pages-block__contact {
+   margin-top: 38px;
+}
+
+.pages-block__about {
+   margin-top: 58px;
+}
+
+.pages-block__item {
+   position: absolute;
+   left: -100%;
+   width: 100%;
+   height: 0;
+   overflow: hidden;
+   transition: left 1s ease;
+   z-index: 1;
+}
+
+.pages-block--active {
+   left: 0;
+   height: auto;
+   border: 2px solid coral;
+}
+
+/*Форма home*/
+.form-change-home {
+   position: relative;
+   padding: 10px 10px 50px;
+}
+
+.form-change-home__title-block {
+   display: flex;
+}
+
+.form-change-home__image-block {
+   display: flex;
+   margin-top: 10px;
+}
+
+.form-change-home__alt-block {
+   display: flex;
+   margin-top: 10px;
+}
+
+.form-change-home__label-title {
+   flex-shrink: 0;
+   margin-right: 15px;
+   width: 195px;
+}
+
+.form-change-home__label-image {
+   margin-right: 15px;
+   flex-shrink: 0;
+}
+.form-change-home__label-alt {
+   margin-right: 86px;
+   flex-shrink: 0;
+}
+
+.form-change-home__input-title {
+   padding: 2px 5px;
+   border-radius: 5px;
+   width: 100%;
+   height: 50px;
+   box-sizing: border-box;
+}
+
+.form-change-home__input-image {
+   padding: 2px 5px;
+   border-radius: 5px;
+   width: 100%;
+   box-sizing: border-box;
+}
+
+.form-change-home__input-alt {
+   padding: 2px 5px;
+   border-radius: 5px;
+   width: 100%;
+   box-sizing: border-box;
+}
+
+.form-change-home__image {
+   width: 100px;
+   max-width: 100px;
+   margin-right: 15px;
+}
+
+.form-change-home__button {
+   position: absolute;
+   font-size: 16px;
+   bottom: 10px;
+   right: 10px;
+   color: blue;
+   padding: 3px 6px;
+   border-radius: 6px;
+   box-shadow: 2px 2px 8px 1px blue;
+   cursor: pointer;
+}
+
+.form-change-home__button:hover {
+   color: rgb(0, 0, 201);
+   box-shadow: 2px 2px 5px 1px blue;
+}
+
+/*Форма contact*/
+.form-change-contact {
+   position: relative;
+   padding: 10px 10px 50px;
+}
+
+.form-change-contact div {
+   display: flex;
+   justify-content: space-between;
+   width: 250px;
+   margin-top: 10px;
+}
+
+.form-change-contact legend {
+   color: gray;
+}
+
+.form-change-contact label {
+   margin-right: 15px;
+}
+
+.form-change-contact input {
+   padding: 2px 5px;
+   border-radius: 6px;
+}
+
+.form-change-contact button {
+   position: absolute;
+   font-size: 16px;
+   bottom: 10px;
+   right: 10px;
+   color: blue;
+   padding: 3px 6px;
+   border-radius: 6px;
+   box-shadow: 2px 2px 8px 1px blue;
+   cursor: pointer;
+}
+
+.form-change-contact button:hover {
+   color: rgb(0, 0, 201);
+   box-shadow: 2px 2px 5px 1px blue;
+}
+
+/*Форма About*/
+
+.form-change-about {
+   position: relative;
+   padding: 10px 10px 50px;
+}
+
+.form-change-about div {
+  display: flex;
+  margin-top: 10px;
+}
+
+.form-change-about label {
+   margin-right: 15px;
+}
+
+.form-change-about div:nth-child(2) > label {
+   margin-right: 45px;
+}
+
+.form-change-about input {
+   padding: 2px 5px;
+   border-radius: 6px;
+}
+
+.form-change-about textarea {
+   resize: none;
+   width: 100%;
+   height: 150px;
+   padding: 10px;
+}
+
+.form-change-about button {
+   position: absolute;
+   font-size: 16px;
+   bottom: 10px;
+   right: 10px;
+   color: blue;
+   padding: 3px 6px;
+   border-radius: 6px;
+   box-shadow: 2px 2px 8px 1px blue;
+   cursor: pointer;
+}
+
+.form-change-about button:hover {
+   color: rgb(0, 0, 201);
+   box-shadow: 2px 2px 5px 1px blue;
+}
+
+/*Blocks change*/
+.blocks-content {
+   display: flex;
+   position: relative;
+   border: 2px solid black;
+   box-shadow: 2px 2px 8px 0 black;
+   max-width: 500px;
+   padding: 10px 10px 40px;
+   margin: 10px;
+}
+
+.blocks-content__block-image {
+   width: 150px;
+   margin-right: 10px;
+}
+
+.blocks-content__block-info {
+   display: flex;
+   flex-direction: column;
+}
+
+.blocks-content__image {
+   width: 100%;
+   max-width: 100%;
+}
+
+.blocks-content__span-url {
+   color: rgb(107, 107, 107);
+}
+
+.blocks-content__span-alt {
+  color: blue;
+}
+
+.blocks-content__button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 16px;
+  color: blue;
+  padding: 3px 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 8px 1px blue;
+  cursor: pointer;
+}
+
+.blocks-content__button:hover {
+   color: rgb(0, 0, 201);
+   box-shadow: 2px 2px 5px 1px blue;
+}
+
+/*add block*/
+.content-add-block {
+   position: relative;
+   border: 2px solid black;
+   box-shadow: 2px 2px 8px 0 black;
+   max-width: 500px;
+   padding: 10px 10px 50px;
+   margin: 10px;
+}
+.content-add-block__block-url {
+   display: flex;
+   flex-direction: column;
+}
+.content-add-block__block-alt {
+   display: flex;
+   flex-direction: column;
+   margin-top: 10px;
+}
+.content-add-block__input-url {
+   
+}
+.content-add-block__label-url {
+   
+}
+.content-add-block__input-alt {
+   
+}
+.content-add-block__label-alt {
+   
+}
+.content-add-block__button {
+   position: absolute;
+   right: 10px;
+   bottom: 10px;
+   font-size: 16px;
+   color: blue;
+   padding: 3px 6px;
+   border-radius: 6px;
+   box-shadow: 2px 2px 8px 1px blue;
+   cursor: pointer;
+}
+.content-add-block__button:hover {
+   color: rgb(0, 0, 201);
+   box-shadow: 2px 2px 5px 1px blue;
+}
+
+@media screen and (max-width: 480px) {
+   .form-change-contact div {
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+   }
+
+   .form-change-about div {
+      flex-direction: column;
+    }
+
+    .form-change-about textarea {
+      box-sizing: border-box;
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+   }
+}
+
+@media screen and (max-width: 560px) {
+   .users-data {
+      font-size: 14px;
+   }
+
+   .main-admin__status {
+      font-size: 14px;
+      right: 10px;
+      top: -22px;
+   }
+
+   .form-change-home__title-block {
+      flex-direction: column;
+   }
+
+   .form-change-home__image-block {
+      flex-direction: column;
+   }
+
+   .form-change-home__label-alt {
+      margin-right: 10px;
+      font-size: 14px;
+   }
+
+}

@@ -2,7 +2,8 @@ const responseMessage = document.querySelector('.users-data__response-message');
 const tableTBody = document.querySelector('.users-data__tbody');
 const authenticationAdminPanel = document.getElementById('authentication__admin-panel');
 const userRoleStatus = document.querySelector('.main-admin__status');
-
+const tabsItem = document.querySelectorAll('.tabs__item');
+const tabsContentSection = document.querySelectorAll('.tabs-content__section');
 // Отримати доступ до адмін панелі і запустити рендер данних на сторінку
 document.addEventListener('DOMContentLoaded', () => {
     accessAdminPanel()
@@ -72,7 +73,6 @@ const getUserId = async () => {
 const accessAdminPanel = () => {
     fetch('/user')
         .then(response => {
-            console.log('Статус відповіді:', response.status);
 
             if (!response.ok) {
                 throw new Error('Мережевий запит не вдалося виконати');
@@ -135,5 +135,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+tabsItem.forEach(element => {
+    element.addEventListener('click', (event) => {
+        tabsItem.forEach(item => item.classList.remove('tabs__item--active'))
+        element.classList.add('tabs__item--active')
 
+        const index = Array.from(tabsItem).indexOf(element)
+        
+        tabsContentSection.forEach((section, i) => {
+            section.classList.remove('tabs-content__section--active')
+            if(index === i) {
+                section.classList.add('tabs-content__section--active')
+            }
+        })  
+    }) 
+});
+
+// tabs list and tabs block
+const pagesTabsItem = document.querySelectorAll('.pages-tabs__item')
+const pagesBlockActive = document.querySelectorAll('.pages-block__item');
+
+pagesTabsItem.forEach((element, index) => {
+    element.addEventListener('click', () => {
+        pagesTabsItem.forEach(elem => elem.classList.remove('pages-tabs__item--active'))
+        pagesBlockActive.forEach(el => el.classList.remove('pages-block--active'))
+        element.classList.add('pages-tabs__item--active');
+        pagesBlockActive.forEach((element, i) => {
+            if (index === i)
+                element.classList.add('pages-block--active')
+        })
+    })
+})
 

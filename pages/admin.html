@@ -22,7 +22,8 @@
             </ul>
             <div class="authentication">
                 <ul class="authentication__list">
-                    <li id="authentication__admin-panel" style="display: none;"><a class="nav__link authentication__active" href="/admin">Адмін-панель</a></li>
+                    <li id="authentication__admin-panel" style="display: none;"><a
+                            class="nav__link authentication__active" href="/admin">Адмін-панель</a></li>
                     <li class="authentication__item">
                         <button class="authentication__button-user">Користувач</button>
                         <button class="authentication__button-login" id="openModal">Логін</button>
@@ -36,33 +37,71 @@
         <h1 class="header-admin__title">Адмін-Панель</h1>
     </header>
     <main class="main-admin">
-        <span class="main-admin__status"></span>
-        <div class="users-data">
-            <table class="users-data__table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Ім'я</th>
-                        <th>Емейл</th>
-                        <th>Роль</th>
-                        <th>Оновити роль</th>
-                    </tr>
-                </thead>
-                <tbody class="users-data__tbody">
-                </tbody>
-            </table>
-            <div class="users-data__response-message"></div>
+        <div class="tabs">
+            <div class="tabs__item tabs__item--active">Змінити ролі</div>
+            <div class="tabs__item">Змінити текст</div>
+            <div class="tabs__item">Змінити блоки</div>
         </div>
-
+        <div class="tabs-content">
+            <div class="tabs-content__section tabs-content__section--active">
+                <span class="main-admin__status"></span>
+                <div class="users-data">
+                    <table class="users-data__table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ім'я</th>
+                                <th>Емейл</th>
+                                <th>Роль</th>
+                                <th>Оновити роль</th>
+                            </tr>
+                        </thead>
+                        <tbody class="users-data__tbody">
+                        </tbody>
+                    </table>
+                    <div class="users-data__response-message"></div>
+                </div>
+            </div>
+            <div class="tabs-content__section">
+                <div class="pages-block">
+                    <div class="pages-tabs">
+                        <ul class="pages-tabs__list">
+                            <li class="pages-tabs__item pages-tabs__item--active">Home</li>
+                            <li class="pages-tabs__item">Contact</li>
+                            <li class="pages-tabs__item">About</li>
+                        </ul>
+                    </div>
+                    <div class="pages-content">
+                        <div class="pages-block__home  pages-block__item pages-block--active">
+                            <form class="form-change-home" action="#" method="post"></form>
+                            <p class="pages-block__info-message-home"></p>
+                        </div>
+                        <div class="pages-block__contact pages-block__item">
+                            <form class="form-change-contact" action="/page/contact" method="post"></form>
+                            <p class="pages-block__info-message-contact"></p>
+                        </div>
+                        <div class="pages-block__about pages-block__item">
+                            <form class="form-change-about" action="/page/about" method="post"></form>
+                            <p class="pages-block__info-message-about"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabs-content__section">
+                <div class="blocks-container"></div>
+            </div>
+        </div>
     </main>
 
     <script src="../js/burgerMenu.js" defer></script>
-    <script src="../js/comments.js" defer></script>
     <script src="../js/formHandlers.js" defer></script>
     <script src="../js/login.js" defer></script>
-    <script src="../js/modal.js" defer></script>
     <script src="../js/user.js" defer></script>
     <script src="../js/admin.js" defer></script>
+    <script src="../js/contactChangePages.js" defer></script>
+    <script src="../js/aboutChangePage.js" defer></script>
+    <script src="../js/homeChangePage.js" defer></script>
+    <script src="../js/changeBlockHome.js" defer></script>
 </body>
 
 </html>

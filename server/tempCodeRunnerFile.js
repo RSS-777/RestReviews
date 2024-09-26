@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require('express');
 const session = require('express-session')
 const path = require('path');
@@ -8,6 +7,7 @@ const pagesRoutes = require('./routes/pagesRoutes');
 const authenticationRoutes = require('./routes/authentificationRoutes');
 const commentsRoutes = require('./routes/commentsRoutes');
 const usersRoutes = require('./routes/usersRouter');
+const contentRoutes = require('./routes/contentRoutes')
 const upload = multer();
 
 const app = express();
@@ -46,5 +46,8 @@ app.use('/', authenticationRoutes);
 
 //users (update, get all users)
 app.use('/', usersRoutes);
+
+//contentRouter
+app.use('/', contentRoutes)
 
 app.listen(PORT, () => console.log(`Server work into port ${PORT}`));

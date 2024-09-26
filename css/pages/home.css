@@ -77,8 +77,10 @@
 }
 
 .info-comment {
-   margin: auto;
+   margin: 10px auto;
    color: gray;
+   font-size: 20px;
+   text-align: center;
 }
 
 /*modal view*/
@@ -179,6 +181,12 @@
 .content__no-comment {
     color: coral;
     font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+    .info-comment {
+        font-size: 16px;
+     }
 }
 
 

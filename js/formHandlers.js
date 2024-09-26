@@ -1,20 +1,38 @@
 const buttonAddComment = document.querySelectorAll('.content__button');
 
-// Додаємо значення + 1 до індексу кнопки (добавити коментар)
-let imageId;
-buttonAddComment.forEach((button, i) => {
-    button.addEventListener('click', () => {
-        imageId = i + 1
-    })
-});
-
 // додавання коментарів до бази даних
 document.addEventListener('DOMContentLoaded', () => {
     const infoSend = document.querySelector('.info-send');
     const form = document.querySelector('.form-comment');
 
+    let imageId;
+
+    // Функція для прив'язки обробників кліків до кнопок
+    const attachButtonListeners = () => {
+        const buttonAddComment = document.querySelectorAll('.content__button');
+        if (buttonAddComment) {
+            buttonAddComment.forEach((button, i) => {
+                button.addEventListener('click', () => {
+                    imageId = i + 1;
+                    console.log('Клік на кнопку, imageId:', imageId); // Логування для перевірки
+                });
+            });
+        }
+    };
+
+    attachButtonListeners();
+
+    // Створюємо спостерігача за змінами в DOM
+    const observer = new MutationObserver(() => {
+        attachButtonListeners(); 
+    });
+
+    // Спостерігаємо за змінами у всьому тілі документа
+    observer.observe(document.body, { childList: true, subtree: true });
+
     if (form) {
         form.addEventListener('submit', (event) => {
+            console.log('Відправка', imageId)
             event.preventDefault();
 
             checkAuthentication((name) => {
@@ -166,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             checkAuthentication()
                             user.classList.add('close__user')
                             window.location.replace('/')
-                            
+
                         }, 2000)
                     } else {
                         console.error('Помилка:', data.message)
@@ -210,3 +228,5 @@ const checkAuthentication = (getName) => {
 
         .catch(error => console.error('Помилка перевірки автентифікації:', error))
 };
+
+

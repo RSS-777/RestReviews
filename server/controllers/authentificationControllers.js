@@ -79,7 +79,6 @@ exports.authLogout = async (req, res) => {
 };
 
 //Доступ до адмін-панелі
-
 exports.adminPanel = async (req, res) => {
     if (req.session.user && (req.session.user.roleId === 3 || req.session.user.roleId === 2)) {
         res.sendFile(path.join(__dirname, '..', '..', 'pages', 'admin.html'))

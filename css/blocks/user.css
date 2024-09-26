@@ -57,3 +57,11 @@
     display: none;
     flex-direction: column;
   }
+
+  @media screen and (max-width: 480px) {
+    .user {
+        right: -130%;
+        top: 35px;
+    }
+    
+  }
