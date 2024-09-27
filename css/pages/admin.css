@@ -328,7 +328,7 @@
    border: 2px solid black;
    box-shadow: 2px 2px 8px 0 black;
    max-width: 500px;
-   padding: 10px 10px 40px;
+   padding: 10px 10px 60px;
    margin: 10px;
 }
 
@@ -355,10 +355,19 @@
   color: blue;
 }
 
+.blocks-content__info-message {
+   color: red;
+   position: absolute;
+   font-size: 14px;
+   bottom: -12px;
+   text-align: center;
+   width: 100%;
+}
+
 .blocks-content__button {
   position: absolute;
   right: 10px;
-  bottom: 10px;
+  bottom: 25px;
   font-size: 16px;
   color: blue;
   padding: 3px 6px;
@@ -372,40 +381,49 @@
    box-shadow: 2px 2px 5px 1px blue;
 }
 
+.blocks-content__button-disabled {
+   color: gray;;
+   box-shadow: none;
+}
+.blocks-content__button-disabled:hover {
+   color: gray;;
+   box-shadow: none;
+}
+
 /*add block*/
-.content-add-block {
+.form-add-block {
    position: relative;
    border: 2px solid black;
    box-shadow: 2px 2px 8px 0 black;
    max-width: 500px;
-   padding: 10px 10px 50px;
+   padding: 10px 10px 80px;
    margin: 10px;
 }
-.content-add-block__block-url {
+
+.form-add-block__block-url {
    display: flex;
    flex-direction: column;
 }
-.content-add-block__block-alt {
+
+.form-add-block__block-alt {
    display: flex;
    flex-direction: column;
    margin-top: 10px;
 }
-.content-add-block__input-url {
-   
+
+.form-add-block__input-url, .form-add-block__input-alt  {
+   border-radius: 6px;
+   padding: 2px 5px;
 }
-.content-add-block__label-url {
-   
+
+.form-add-block__label-url, .form-add-block__label-alt {
+   margin-bottom: 5px;
 }
-.content-add-block__input-alt {
-   
-}
-.content-add-block__label-alt {
-   
-}
-.content-add-block__button {
+
+.form-add-block__button {
    position: absolute;
    right: 10px;
-   bottom: 10px;
+   bottom: 25px;
    font-size: 16px;
    color: blue;
    padding: 3px 6px;
@@ -413,9 +431,19 @@
    box-shadow: 2px 2px 8px 1px blue;
    cursor: pointer;
 }
-.content-add-block__button:hover {
+
+.form-add-block__button:hover {
    color: rgb(0, 0, 201);
    box-shadow: 2px 2px 5px 1px blue;
+}
+
+.form-add-block__info-submit {
+   color: red;
+   position: absolute;
+   font-size: 14px;
+   bottom: -12px;
+   text-align: center;
+   width: 100%;
 }
 
 @media screen and (max-width: 480px) {

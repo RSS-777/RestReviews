@@ -11,5 +11,4 @@ router.post('/page/contact', contentController.postPageContact);
 router.post('/page/home', contentController.postPageHome);
 router.post('/page/block', contentController.postChangeBlock);
 
-
 module.exports = router

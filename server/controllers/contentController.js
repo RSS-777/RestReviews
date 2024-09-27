@@ -4,13 +4,13 @@ exports.getPageHome = ((req, res) => {
 
     ContentModel.getPageHome((err, result) => {
         if (err) {
-            // console.log('Помилка при отриманні сторінки з бази данних:', result);
+            console.log('Помилка при отриманні сторінки з бази данних');
             return res.status(500).json({
                 message: 'Помилка при отриманні сторінки з бази данних.',
                 error: err
             })
         } else {
-            // console.log('Сторінка успішно отримана з бази данних:', result);
+            console.log('Сторінка успішно отримана з бази данних');
             return res.status(200).json({
                 message: 'Сторінка успішно отримана з бази данних',
                 data: result
@@ -22,11 +22,13 @@ exports.getPageHome = ((req, res) => {
 exports.getPageAbout = ((req, res) => {
     ContentModel.getPageAbout((err, result) => {
         if (err) {
+            console.log('Помилка при отриманні сторінки з бази данних');
             return res.status(500).json({
                 message: 'Помилка при отриманні сторінки з бази данних.',
                 error: err
             })
         } else {
+            console.log('Сторінка успішно отримана з бази данних');
             return res.status(200).json({
                 message: 'Сторінка успішно отримана з бази данних',
                 data: result
@@ -38,11 +40,13 @@ exports.getPageAbout = ((req, res) => {
 exports.getPageContact = ((req, res) => {
     ContentModel.getPageContact((err, result) => {
         if (err) {
+            console.log('Помилка при отриманні сторінки з бази данних');
             return res.status(500).json({
                 message: 'Помилка при отриманні сторінки з бази данних.',
                 error: err
             })
         } else {
+            console.log('Сторінка успішно отримана з бази данних');
             return res.status(200).json({
                 message: 'Сторінка успішно отримана з бази данних',
                 data: result
@@ -57,14 +61,12 @@ exports.postPageAbout = ((req, res) => {
     ContentModel.postPageAbout(title, text, (err, result) => {
         if (err) {
             console.log('Не вдалося обновити дані на сервері, сторінки About, Причина:', err)
-
             res.status(500).json({
                 message: 'Не вдалося обновити дані на сервері, сторінки About',
                 error: err
             })
         } else {
             console.log('Дані успішно оновленні на сервері сторінки About')
-
             res.status(200).json({
                 message: 'Дані успішно оновленні на сервері сторінки About'
             })
@@ -77,14 +79,12 @@ exports.postPageContact = ((req, res) => {
     ContentModel.postPageContact(addressCity, addressCountry, addressRegion, addressStreet, email, tell, title, viber, (err, result) => {
         if (err) {
             console.log('Не вдалося обновити дані на сервері, сторінки Contact, Причина:', err)
-
             res.status(500).json({
                 message: 'Не вдалося обновити дані на сервері, сторінки Contact',
                 error: err
             })
         } else {
             console.log('Дані успішно оновленні на сервері сторінки Contact')
-
             res.status(200).json({
                 message: 'Дані успішно оновленні на сервері сторінки Contact'
             })
@@ -111,7 +111,9 @@ exports.postPageHome = ((req, res) => {
 });
 
 exports.postChangeBlock = ((req, res) => {
-    const { idBlock, methodChange, url = null, alt = null } = req.body
+    const { idBlock = null, methodChange, url = null, alt = null } = req.body
+    console.log(idBlock, methodChange, url, alt)
+
     ContentModel.postChangeBlock(idBlock, methodChange, url, alt, (err, result) => {
         if (methodChange === 'add') {
             if (err) {
@@ -122,13 +124,13 @@ exports.postChangeBlock = ((req, res) => {
                 })
             } else {
                 console.log('Додано новий блок до таблиці Block успішно')
-                res.status(500).json({
+                res.status(200).json({
                     message: 'Додано новий блок до таблиці Block успішно'
                 })
             }
         }
         if (methodChange === 'del') {
-            if(err) {
+            if (err) {
                 console.log('Помилка при видаленні блоку з таблицю Block')
                 res.status(500).json({
                     message: 'Помилка при видаленні блоку з таблицю Block',
@@ -136,10 +138,10 @@ exports.postChangeBlock = ((req, res) => {
                 })
             } else {
                 console.log('Видаленно блок з таблиці Block успішно')
-                res.status(500).json({
+                res.status(200).json({
                     message: 'Видаленно блок з таблиці Block успішно',
                 })
             }
         }
     })
-})
+});

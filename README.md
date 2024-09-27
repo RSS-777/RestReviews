@@ -5,7 +5,7 @@
 >2. Log in to a session after successful registration.
 >3. Log out of the session.
 >4. Registered users can leave comments.
->5. The application includes an admin panel for managing users and comments.
+>5. The application contains an administrative panel for managing user roles, changing content on all pages, deleting and adding content!
 >6. All user and comment data is stored in a MySQL relational database management system (RDBMS).
 >7. Passwords are hashed for security purposes.
 ><br><br>

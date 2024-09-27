@@ -2,7 +2,12 @@ const connection = require('../config/db');
 
 const ContentModel = {
     getPageHome: (callBack) => {
-        const query = `SELECT block.block_id, block.url_image, block.alt_image, page_home.title FROM block JOIN page_home ON block.page_id = page_home.page_home_id `;
+        const query = `
+        SELECT block.block_id, block.url_image, block.alt_image, page_home.title 
+        FROM block 
+        JOIN page_home 
+        ON block.page_id = page_home.page_home_id 
+        `;
         connection.query(query, (err, result) => {
             if (err) {
                 return callBack(err)
